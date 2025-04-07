@@ -101,9 +101,6 @@
         if (token != '') url = Lampa.Utils.addUrlComponent(url, 'token=');
       }
       url = Lampa.Utils.addUrlComponent(url, 'showy_token=' + Lampa.Storage.get('showy_token', '6ca3ddc9-178e-48a8-84b2-195cea8c7c79'));
-	
-	    console.log('url_auth', url);
-	    
       return url;
     }
 function showHavePROModal() {
