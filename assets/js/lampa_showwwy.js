@@ -93,7 +93,7 @@
         if (email) url = Lampa.Utils.addUrlComponent(url, 'account_email=' + encodeURIComponent(email));
       }
       if (url.indexOf('uid=') == -1) {
-        var uid = Lampa.Storage.get('lampac_unic_id', '');
+        var uid = Lampa.Storage.get('lampac_unic_id', 'tyusdt');
         if (uid) url = Lampa.Utils.addUrlComponent(url, 'uid=' + encodeURIComponent(uid));
       }
       if (url.indexOf('token=') == -1) {
