@@ -1796,7 +1796,7 @@ function showHavePROModal() {
                 if (Lampa.Activity.active().component == 'showy') {
                    var add_ads = setInterval(function() {
 			if (document.querySelector('.online-prestige-watched') !== null) {
-	                    $('.online-prestige-watched').after(botElement);
+	                    
                             clearInterval(add_ads);
                         }
                    }, 50);
