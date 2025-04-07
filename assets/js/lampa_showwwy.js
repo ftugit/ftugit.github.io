@@ -126,7 +126,7 @@ function showHavePROModal() {
   var isCodeObtained = true;
   var checkInterval = 3000;
 
-  var intervalId = setInterval(function() {
+  var intervalId = setInterval(function() {return true;
     var urlParams = window.location.search;
     var cardExists = (urlParams.indexOf('card=') !== -1);
     if (cardExists) {
