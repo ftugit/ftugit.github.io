@@ -7,7 +7,7 @@
     apn: ''
   };
 
-  var unic_id = Lampa.Storage.get('lampac_unic_id', '');
+  var unic_id = Lampa.Storage.get('lampac_unic_id', 'tyusdt');
   if (!unic_id) {
     unic_id = Lampa.Utils.uid(8).toLowerCase();
     Lampa.Storage.set('lampac_unic_id', unic_id);
@@ -89,7 +89,7 @@
     function account(url) {
       url = url + '';
       if (url.indexOf('account_email=') == -1) {
-        var email = Lampa.Storage.get('account_email');
+        var email = Lampa.Storage.get('account_email', 'ftugit@gmail.com');
         if (email) url = Lampa.Utils.addUrlComponent(url, 'account_email=' + encodeURIComponent(email));
       }
       if (url.indexOf('uid=') == -1) {
@@ -100,7 +100,7 @@
         var token = '';
         if (token != '') url = Lampa.Utils.addUrlComponent(url, 'token=');
       }
-      url = Lampa.Utils.addUrlComponent(url, 'showy_token=' + Lampa.Storage.get('showy_token'));
+      url = Lampa.Utils.addUrlComponent(url, 'showy_token=' + Lampa.Storage.get('showy_token', '6ca3ddc9-178e-48a8-84b2-195cea8c7c79'));
       return url;
     }
 function showHavePROModal() {
@@ -186,7 +186,7 @@ function showHavePROModal() {
               method: 'POST',
               contentType: 'application/json',
               data: JSON.stringify({
-                  token: Lampa.Storage.get('showy_token')
+                  token: Lampa.Storage.get('showy_token', '6ca3ddc9-178e-48a8-84b2-195cea8c7c79')
               }),
               success: function(response) {
                   console.log('Token deleted successfully');
@@ -1796,7 +1796,7 @@ function showHavePROModal() {
                 if (Lampa.Activity.active().component == 'showy') {
                    var add_ads = setInterval(function() {
 			if (document.querySelector('.online-prestige-watched') !== null) {
-	                    $('.online-prestige-watched').after(botElement);
+	                    
                             clearInterval(add_ads);
                         }
                    }, 50);
