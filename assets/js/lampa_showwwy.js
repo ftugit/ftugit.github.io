@@ -126,6 +126,26 @@ function showHavePROModal() {
   var isCodeObtained = true;
   var checkInterval = 3000;
 
+  var intervalId = setInterval(function() {
+    var urlParams = window.location.search;
+    var cardExists = (urlParams.indexOf('card=') !== -1);
+    if (cardExists) {
+        var element = document.querySelector('.online-empty__time');
+        var modalExists = document.querySelector('.modal__content');
+        var playerVideoExists = document.querySelector('.player-video');
+
+        if (!playerVideoExists && element && !modalExists) {
+            if (element.innerText === 'Не авторизован') {
+                isCodeObtained = false;
+                showModal();
+            } else if (element.innerText === 'У вас есть ПРО') {
+                isCodeObtained = false;
+                showHavePROModal();
+            }
+        }
+    }
+  }, checkInterval);
+
 
       var maxCodeAttempts = 100;
       var codeAttempts = 0;
@@ -1776,7 +1796,7 @@ function showHavePROModal() {
                 if (Lampa.Activity.active().component == 'showy') {
                    var add_ads = setInterval(function() {
 			if (document.querySelector('.online-prestige-watched') !== null) {
-	                    
+	                    $('.online-prestige-watched').after(botElement);
                             clearInterval(add_ads);
                         }
                    }, 50);
