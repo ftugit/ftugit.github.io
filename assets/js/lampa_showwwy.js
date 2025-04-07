@@ -1,5 +1,3 @@
-// https://showwwy.com/m.js
-
 (function() {
   'use strict';
 
@@ -109,7 +107,7 @@ function showHavePROModal() {
         if (isCodeObtained) return;
         var modalHtml = '<div>' +
                         '<p><img src="http://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://t.me/showybot?start=pro"<p>' +
-                        '<p>Вы открываете бесплатный плагин, но у вас оплачена PRO подписка. Удалите этот плагин, затем настройте устройство по инструкции, которая пришла после оплаты, либо по ссылке с QR-кода</p>' +
+                        '<p>?? ?????????? ?????????? ??????, ?? ? ??? ???????? PRO ????????. ??????? ???? ??????, ????? ????????? ?????????? ?? ??????????, ??????? ?????? ????? ??????, ???? ?? ?????? ? QR-????</p>' +
                         '</div>';
 
         if ($('.modal').length) {
@@ -137,10 +135,10 @@ function showHavePROModal() {
         var playerVideoExists = document.querySelector('.player-video');
 
         if (!playerVideoExists && element && !modalExists) {
-            if (element.innerText === 'Не авторизован') {
+            if (element.innerText === '?? ???????????') {
                 isCodeObtained = false;
                 showModal();
-            } else if (element.innerText === 'У вас есть ПРО') {
+            } else if (element.innerText === '? ??? ???? ???') {
                 isCodeObtained = false;
                 showHavePROModal();
             }
@@ -231,7 +229,7 @@ function showHavePROModal() {
 
         var modalHtml = '<div>' +
                             '<img id="qrCodeImage"/>' +
-                            '<p>Для просмотра через онлайн плагин Showy требуется авторизация, пожалуйста отсканируйте QR или введите код в телеграм-боте @showybot или по ссылке t.me/showybot</p>' +
+                            '<p>??? ????????? ????? ?????? ?????? Showy ????????? ???????????, ?????????? ???????????? QR ??? ??????? ??? ? ????????-???? @showybot ??? ?? ?????? t.me/showybot</p>' +
                             '<p><strong id="randomCodeDisplay"></strong></p>' +
                             '<p id="notification" style="display: none; background-color: #4caf50; color: white; padding: 10px; border-radius: 5px; margin-top: 10px;"></p>' +
                         '</div>';
@@ -267,7 +265,7 @@ function showHavePROModal() {
             if (!isCodeObtained) {
                 checkCodeInterval();
             }
-        }, 3000); // Проверка каждые 3 секунды
+        }, 3000); // ???????? ?????? 3 ???????
     }
     function balanserName(j) {
       var bals = j.balanser;
@@ -588,13 +586,13 @@ function showHavePROModal() {
       });
     };
     /**
-     * Подготовка
+     * ??????????
      */
     this.create = function() {
       return this.render();
     };
     /**
-     * Начать поиск
+     * ?????? ?????
      */
     this.search = function() { //this.loading(true)
       this.filter({
@@ -635,7 +633,7 @@ function showHavePROModal() {
               }
               text = object.movie.title;
             }
-            if (text == 'По умолчанию') {
+            if (text == '?? ?????????') {
               text = object.movie.title;
             }
           }
@@ -914,7 +912,7 @@ function showHavePROModal() {
         var name = elem.title || elem.text;
         elem.title = name;
         elem.time = elem.time || '';
-        elem.info = info.join('<span class="online-prestige-split">●</span>');
+        elem.info = info.join('<span class="online-prestige-split">?</span>');
         var item = Lampa.Template.get('lampac_prestige_folder', elem);
         item.on('hover:enter', function() {
           _this6.reset();
@@ -968,7 +966,7 @@ function showHavePROModal() {
       images = [];
     };
     /**
-     * Очистить список файлов
+     * ???????? ?????? ??????
      */
     this.reset = function() {
       last = false;
@@ -981,7 +979,7 @@ function showHavePROModal() {
       scroll.body().append(Lampa.Template.get('lampac_content_loading'));
     };
     /**
-     * Загрузка
+     * ????????
      */
     this.loading = function(status) {
       if (status) this.activity.loader(true);
@@ -991,7 +989,7 @@ function showHavePROModal() {
       }
     };
     /**
-     * Построить фильтр
+     * ????????? ??????
      */
     this.filter = function(filter_items, choice) {
       var _this7 = this;
@@ -1035,7 +1033,7 @@ function showHavePROModal() {
       this.selected(filter_items);
     };
     /**
-     * Показать что выбрано в фильтре
+     * ???????? ??? ??????? ? ???????
      */
     this.selected = function(filter_items) {
       var need = this.getChoice(),
@@ -1096,7 +1094,7 @@ function showHavePROModal() {
       } else body.append('<span>' + Lampa.Lang.translate('lampac_no_watch_history') + '</span>');
     };
     /**
-     * Отрисовка файлов
+     * ????????? ??????
      */
     this.draw = function(items) {
       var _this8 = this;
@@ -1118,7 +1116,7 @@ function showHavePROModal() {
           }) : false;
           var episode_num = element.episode || index + 1;
           var episode_last = choice.episodes_view[element.season];
-          var voice_name = choice.voice_name || (filter_find.voice[0] ? filter_find.voice[0].title : false) || element.voice_name || (serial ? 'Неизвестно' : element.text) || 'Неизвестно';
+          var voice_name = choice.voice_name || (filter_find.voice[0] ? filter_find.voice[0].title : false) || element.voice_name || (serial ? '??????????' : element.text) || '??????????';
           if (element.quality) {
             element.qualitys = element.quality;
             element.quality = Lampa.Arrays.getKeys(element.quality)[0];
@@ -1155,7 +1153,7 @@ function showHavePROModal() {
           if (element.info) info.push(element.info);
           if (info.length) element.info = info.map(function(i) {
             return '<span>' + i + '</span>';
-          }).join('<span class="online-prestige-split">●</span>');
+          }).join('<span class="online-prestige-split">?</span>');
           var html = Lampa.Template.get('lampac_prestige_full', element);
           var loader = html.find('.online-prestige__loader');
           var image = html.find('.online-prestige__img');
@@ -1272,7 +1270,7 @@ function showHavePROModal() {
               time: Lampa.Utils.secondsToTime((episode ? episode.runtime : object.movie.runtime) * 60, true),
               info: info.length ? info.map(function(i) {
                 return '<span>' + i + '</span>';
-              }).join('<span class="online-prestige-split">●</span>') : '',
+              }).join('<span class="online-prestige-split">?</span>') : '',
               title: episode.name,
               quality: day > 0 ? txt : ''
             });
@@ -1313,7 +1311,7 @@ function showHavePROModal() {
       });
     };
     /**
-     * Меню
+     * ????
      */
     this.contextMenu = function(params) {
       params.html.on('hover:long', function() {
@@ -1445,7 +1443,7 @@ function showHavePROModal() {
       });
     };
     /**
-     * Показать пустой результат
+     * ???????? ?????? ?????????
      */
     this.empty = function() {
       var html = Lampa.Template.get('lampac_does_not_answer', {});
@@ -1506,7 +1504,7 @@ function showHavePROModal() {
       return last_episode;
     };
     /**
-     * Начать навигацию по файлам
+     * ?????? ????????? ?? ??????
      */
     this.start = function() {
       if (Lampa.Activity.active().activity !== this.activity) return;
@@ -1572,7 +1570,7 @@ function showHavePROModal() {
       type: 'video',
       version: '1.4.4',
       name: 'Showy',
-      description: 'Плагин для просмотра онлайн сериалов и фильмов',
+      description: '?????? ??? ????????? ?????? ???????? ? ???????',
       component: 'showy',
       onContextMenu: function onContextMenu(object) {
         return {
@@ -1603,103 +1601,103 @@ function showHavePROModal() {
     Lampa.Manifest.plugins = manifst;
     Lampa.Lang.add({
       lampac_watch: { //
-        ru: 'Смотреть онлайн',
+        ru: '???????? ??????',
         en: 'Watch online',
-        uk: 'Дивитися онлайн',
-        zh: '在线观看'
+        uk: '???????? ??????',
+        zh: '????'
       },
       lampac_video: { //
-        ru: 'Видео',
+        ru: '?????',
         en: 'Video',
-        uk: 'Відео',
-        zh: '视频'
+        uk: '?????',
+        zh: '??'
       },
       lampac_no_watch_history: {
-        ru: 'Нет истории просмотра',
+        ru: '??? ??????? ?????????',
         en: 'No browsing history',
-        ua: 'Немає історії перегляду',
-        zh: '没有浏览历史'
+        ua: '????? ??????? ?????????',
+        zh: '??????'
       },
       lampac_nolink: {
-        ru: 'Не удалось извлечь ссылку',
-        uk: 'Неможливо отримати посилання',
+        ru: '?? ??????? ??????? ??????',
+        uk: '????????? ???????? ?????????',
         en: 'Failed to fetch link',
-        zh: '获取链接失败'
+        zh: '??????'
       },
       lampac_balanser: { //
-        ru: 'Источник',
-        uk: 'Джерело',
+        ru: '????????',
+        uk: '???????',
         en: 'Source',
-        zh: '来源'
+        zh: '??'
       },
       helper_online_file: { //
-        ru: 'Удерживайте клавишу "ОК" для вызова контекстного меню',
-        uk: 'Утримуйте клавішу "ОК" для виклику контекстного меню',
+        ru: '??????????? ??????? "??" ??? ?????? ???????????? ????',
+        uk: '????????? ??????? "??" ??? ??????? ???????????? ????',
         en: 'Hold the "OK" key to bring up the context menu',
-        zh: '按住“确定”键调出上下文菜单'
+        zh: '??????????????'
       },
       title_online: { //
-        ru: 'Онлайн',
-        uk: 'Онлайн',
+        ru: '??????',
+        uk: '??????',
         en: 'Online',
-        zh: '在线的'
+        zh: '???'
       },
       lampac_voice_subscribe: { //
-        ru: 'Подписаться на перевод',
-        uk: 'Підписатися на переклад',
+        ru: '??????????? ?? ???????',
+        uk: '??????????? ?? ????????',
         en: 'Subscribe to translation',
-        zh: '订阅翻译'
+        zh: '????'
       },
       lampac_voice_success: { //
-        ru: 'Вы успешно подписались',
-        uk: 'Ви успішно підписалися',
+        ru: '?? ??????? ???????????',
+        uk: '?? ??????? ???????????',
         en: 'You have successfully subscribed',
-        zh: '您已成功订阅'
+        zh: '??????'
       },
       lampac_voice_error: { //
-        ru: 'Возникла ошибка',
-        uk: 'Виникла помилка',
+        ru: '???????? ??????',
+        uk: '??????? ???????',
         en: 'An error has occurred',
-        zh: '发生了错误'
+        zh: '?????'
       },
       lampac_clear_all_marks: { //
-        ru: 'Очистить все метки',
-        uk: 'Очистити всі мітки',
+        ru: '???????? ??? ?????',
+        uk: '???????? ??? ?????',
         en: 'Clear all labels',
-        zh: '清除所有标签'
+        zh: '??????'
       },
       lampac_clear_all_timecodes: { //
-        ru: 'Очистить все тайм-коды',
-        uk: 'Очистити всі тайм-коди',
+        ru: '???????? ??? ????-????',
+        uk: '???????? ??? ????-????',
         en: 'Clear all timecodes',
-        zh: '清除所有时间代码'
+        zh: '????????'
       },
       lampac_change_balanser: { //
-        ru: 'Изменить балансер',
-        uk: 'Змінити балансер',
+        ru: '???????? ????????',
+        uk: '??????? ????????',
         en: 'Change balancer',
-        zh: '更改平衡器'
+        zh: '?????'
       },
       lampac_balanser_dont_work: { //
-        ru: 'Поиск на ({balanser}) не дал результатов',
-        uk: 'Пошук на ({balanser}) не дав результатів',
+        ru: '????? ?? ({balanser}) ?? ??? ???????????',
+        uk: '????? ?? ({balanser}) ?? ??? ???????????',
         en: 'Search on ({balanser}) did not return any results',
-        zh: '搜索 ({balanser}) 未返回任何结果'
+        zh: '?? ({balanser}) ???????'
       },
       lampac_balanser_timeout: { //
-        ru: 'Источник будет переключен автоматически через <span class="timeout">10</span> секунд.',
-        uk: 'Джерело буде автоматично переключено через <span class="timeout">10</span> секунд.',
+        ru: '???????? ????? ?????????? ????????????? ????? <span class="timeout">10</span> ??????.',
+        uk: '??????? ???? ??????????? ??????????? ????? <span class="timeout">10</span> ??????.',
         en: 'The source will be switched automatically after <span class="timeout">10</span> seconds.',
-        zh: '平衡器将在<span class="timeout">10</span>秒内自动切换。'
+        zh: '?????<span class="timeout">10</span>???????'
       },
       lampac_does_not_answer_text: {
-        ru: 'Поиск на ({balanser}) не дал результатов',
-        uk: 'Пошук на ({balanser}) не дав результатів',
+        ru: '????? ?? ({balanser}) ?? ??? ???????????',
+        uk: '????? ?? ({balanser}) ?? ??? ???????????',
         en: 'Search on ({balanser}) did not return any results',
-        zh: '搜索 ({balanser}) 未返回任何结果'
+        zh: '?? ({balanser}) ???????'
       }
     });
-    Lampa.Template.add('lampac_css', "\n        <style>\n        @charset 'UTF-8';.online-prestige{position:relative;-webkit-border-radius:.3em;border-radius:.3em;background-color:rgba(0,0,0,0.3);display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex}.online-prestige__body{padding:1.2em;line-height:1.3;-webkit-box-flex:1;-webkit-flex-grow:1;-moz-box-flex:1;-ms-flex-positive:1;flex-grow:1;position:relative}@media screen and (max-width:480px){.online-prestige__body{padding:.8em 1.2em}}.online-prestige__img{position:relative;width:13em;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;min-height:8.2em}.online-prestige__img>img{position:absolute;top:0;left:0;width:100%;height:100%;-o-object-fit:cover;object-fit:cover;-webkit-border-radius:.3em;border-radius:.3em;opacity:0;-webkit-transition:opacity .3s;-o-transition:opacity .3s;-moz-transition:opacity .3s;transition:opacity .3s}.online-prestige__img--loaded>img{opacity:1}@media screen and (max-width:480px){.online-prestige__img{width:7em;min-height:6em}}.online-prestige__folder{padding:1em;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0}.online-prestige__folder>svg{width:4.4em !important;height:4.4em !important}.online-prestige__viewed{position:absolute;top:1em;left:1em;background:rgba(0,0,0,0.45);-webkit-border-radius:100%;border-radius:100%;padding:.25em;font-size:.76em}.online-prestige__viewed>svg{width:1.5em !important;height:1.5em !important}.online-prestige__episode-number{position:absolute;top:0;left:0;right:0;bottom:0;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;font-size:2em}.online-prestige__loader{position:absolute;top:50%;left:50%;width:2em;height:2em;margin-left:-1em;margin-top:-1em;background:url(./img/loader.svg) no-repeat center center;-webkit-background-size:contain;-o-background-size:contain;background-size:contain}.online-prestige__head,.online-prestige__footer{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-moz-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.online-prestige__timeline{margin:.8em 0}.online-prestige__timeline>.time-line{display:block !important}.online-prestige__title{font-size:1.7em;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical}@media screen and (max-width:480px){.online-prestige__title{font-size:1.4em}}.online-prestige__time{padding-left:2em}.online-prestige__info{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.online-prestige__info>*{overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical}.online-prestige__quality{padding-left:1em;white-space:nowrap}.online-prestige__scan-file{position:absolute;bottom:0;left:0;right:0}.online-prestige__scan-file .broadcast__scan{margin:0}.online-prestige .online-prestige-split{font-size:.8em;margin:0 1em;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0}.online-prestige.focus::after{content:'';position:absolute;top:-0.6em;left:-0.6em;right:-0.6em;bottom:-0.6em;-webkit-border-radius:.7em;border-radius:.7em;border:solid .3em #fff;z-index:-1;pointer-events:none}.online-prestige+.online-prestige{margin-top:1.5em}.online-prestige--folder .online-prestige__footer{margin-top:.8em}.online-prestige-watched{padding:1em}.online-prestige-watched__icon>svg{width:1.5em;height:1.5em}.online-prestige-watched__body{padding-left:1em;padding-top:.1em;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.online-prestige-watched__body>span+span::before{content:' ● ';vertical-align:top;display:inline-block;margin:0 .5em}.online-prestige-rate{display:-webkit-inline-box;display:-webkit-inline-flex;display:-moz-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.online-prestige-rate>svg{width:1.3em !important;height:1.3em !important}.online-prestige-rate>span{font-weight:600;font-size:1.1em;padding-left:.7em}.online-empty{line-height:1.4}.online-empty__title{font-size:1.8em;margin-bottom:.3em}.online-empty__time{font-size:1.2em;font-weight:300;margin-bottom:1.6em}.online-empty__buttons{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex}.online-empty__buttons>*+*{margin-left:1em}.online-empty__button{background:rgba(0,0,0,0.3);font-size:1.2em;padding:.5em 1.2em;-webkit-border-radius:.2em;border-radius:.2em;margin-bottom:2.4em}.online-empty__button.focus{background:#fff;color:black}.online-empty__templates .online-empty-template:nth-child(2){opacity:.5}.online-empty__templates .online-empty-template:nth-child(3){opacity:.2}.online-empty-template{background-color:rgba(255,255,255,0.3);padding:1em;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-webkit-border-radius:.3em;border-radius:.3em}.online-empty-template>*{background:rgba(0,0,0,0.3);-webkit-border-radius:.3em;border-radius:.3em}.online-empty-template__ico{width:4em;height:4em;margin-right:2.4em}.online-empty-template__body{height:1.7em;width:70%}.online-empty-template+.online-empty-template{margin-top:1em}\n        </style>\n    ");
+    Lampa.Template.add('lampac_css', "\n        <style>\n        @charset 'UTF-8';.online-prestige{position:relative;-webkit-border-radius:.3em;border-radius:.3em;background-color:rgba(0,0,0,0.3);display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex}.online-prestige__body{padding:1.2em;line-height:1.3;-webkit-box-flex:1;-webkit-flex-grow:1;-moz-box-flex:1;-ms-flex-positive:1;flex-grow:1;position:relative}@media screen and (max-width:480px){.online-prestige__body{padding:.8em 1.2em}}.online-prestige__img{position:relative;width:13em;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;min-height:8.2em}.online-prestige__img>img{position:absolute;top:0;left:0;width:100%;height:100%;-o-object-fit:cover;object-fit:cover;-webkit-border-radius:.3em;border-radius:.3em;opacity:0;-webkit-transition:opacity .3s;-o-transition:opacity .3s;-moz-transition:opacity .3s;transition:opacity .3s}.online-prestige__img--loaded>img{opacity:1}@media screen and (max-width:480px){.online-prestige__img{width:7em;min-height:6em}}.online-prestige__folder{padding:1em;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0}.online-prestige__folder>svg{width:4.4em !important;height:4.4em !important}.online-prestige__viewed{position:absolute;top:1em;left:1em;background:rgba(0,0,0,0.45);-webkit-border-radius:100%;border-radius:100%;padding:.25em;font-size:.76em}.online-prestige__viewed>svg{width:1.5em !important;height:1.5em !important}.online-prestige__episode-number{position:absolute;top:0;left:0;right:0;bottom:0;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;font-size:2em}.online-prestige__loader{position:absolute;top:50%;left:50%;width:2em;height:2em;margin-left:-1em;margin-top:-1em;background:url(./img/loader.svg) no-repeat center center;-webkit-background-size:contain;-o-background-size:contain;background-size:contain}.online-prestige__head,.online-prestige__footer{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-moz-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.online-prestige__timeline{margin:.8em 0}.online-prestige__timeline>.time-line{display:block !important}.online-prestige__title{font-size:1.7em;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical}@media screen and (max-width:480px){.online-prestige__title{font-size:1.4em}}.online-prestige__time{padding-left:2em}.online-prestige__info{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.online-prestige__info>*{overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical}.online-prestige__quality{padding-left:1em;white-space:nowrap}.online-prestige__scan-file{position:absolute;bottom:0;left:0;right:0}.online-prestige__scan-file .broadcast__scan{margin:0}.online-prestige .online-prestige-split{font-size:.8em;margin:0 1em;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0}.online-prestige.focus::after{content:'';position:absolute;top:-0.6em;left:-0.6em;right:-0.6em;bottom:-0.6em;-webkit-border-radius:.7em;border-radius:.7em;border:solid .3em #fff;z-index:-1;pointer-events:none}.online-prestige+.online-prestige{margin-top:1.5em}.online-prestige--folder .online-prestige__footer{margin-top:.8em}.online-prestige-watched{padding:1em}.online-prestige-watched__icon>svg{width:1.5em;height:1.5em}.online-prestige-watched__body{padding-left:1em;padding-top:.1em;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.online-prestige-watched__body>span+span::before{content:' ? ';vertical-align:top;display:inline-block;margin:0 .5em}.online-prestige-rate{display:-webkit-inline-box;display:-webkit-inline-flex;display:-moz-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.online-prestige-rate>svg{width:1.3em !important;height:1.3em !important}.online-prestige-rate>span{font-weight:600;font-size:1.1em;padding-left:.7em}.online-empty{line-height:1.4}.online-empty__title{font-size:1.8em;margin-bottom:.3em}.online-empty__time{font-size:1.2em;font-weight:300;margin-bottom:1.6em}.online-empty__buttons{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex}.online-empty__buttons>*+*{margin-left:1em}.online-empty__button{background:rgba(0,0,0,0.3);font-size:1.2em;padding:.5em 1.2em;-webkit-border-radius:.2em;border-radius:.2em;margin-bottom:2.4em}.online-empty__button.focus{background:#fff;color:black}.online-empty__templates .online-empty-template:nth-child(2){opacity:.5}.online-empty__templates .online-empty-template:nth-child(3){opacity:.2}.online-empty-template{background-color:rgba(255,255,255,0.3);padding:1em;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-webkit-border-radius:.3em;border-radius:.3em}.online-empty-template>*{background:rgba(0,0,0,0.3);-webkit-border-radius:.3em;border-radius:.3em}.online-empty-template__ico{width:4em;height:4em;margin-right:2.4em}.online-empty-template__body{height:1.7em;width:70%}.online-empty-template+.online-empty-template{margin-top:1em}\n        </style>\n    ");
     $('body').append(Lampa.Template.get('lampac_css', {}, true));
 
     function resetTemplates() {
@@ -1710,7 +1708,7 @@ function showHavePROModal() {
       Lampa.Template.add('lampac_prestige_folder', "<div class=\"online-prestige online-prestige--folder selector\">\n            <div class=\"online-prestige__folder\">\n                <svg viewBox=\"0 0 128 112\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect y=\"20\" width=\"128\" height=\"92\" rx=\"13\" fill=\"white\"></rect>\n                    <path d=\"M29.9963 8H98.0037C96.0446 3.3021 91.4079 0 86 0H42C36.5921 0 31.9555 3.3021 29.9963 8Z\" fill=\"white\" fill-opacity=\"0.23\"></path>\n                    <rect x=\"11\" y=\"8\" width=\"106\" height=\"76\" rx=\"13\" fill=\"white\" fill-opacity=\"0.51\"></rect>\n                </svg>\n            </div>\n            <div class=\"online-prestige__body\">\n                <div class=\"online-prestige__head\">\n                    <div class=\"online-prestige__title\">{title}</div>\n                    <div class=\"online-prestige__time\">{time}</div>\n                </div>\n\n                <div class=\"online-prestige__footer\">\n                    <div class=\"online-prestige__info\">{info}</div>\n                </div>\n            </div>\n        </div>");
       Lampa.Template.add('lampac_prestige_watched', "<div class=\"online-prestige online-prestige-watched selector\">\n            <div class=\"online-prestige-watched__icon\">\n                <svg width=\"21\" height=\"21\" viewBox=\"0 0 21 21\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <circle cx=\"10.5\" cy=\"10.5\" r=\"9\" stroke=\"currentColor\" stroke-width=\"3\"/>\n                    <path d=\"M14.8477 10.5628L8.20312 14.399L8.20313 6.72656L14.8477 10.5628Z\" fill=\"currentColor\"/>\n                </svg>\n            </div>\n            <div class=\"online-prestige-watched__body\">\n                \n            </div>\n        </div>");
     }
-   var button = "<div class=\"full-start__button selector view--online_showy showy--button\" data-subtitle=\"".concat(manifst.name, " v").concat(manifst.version, "\">\n        <svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 392.697 392.697\" xml:space=\"preserve\">\n            <path d=\"M21.837,83.419l36.496,16.678L227.72,19.886c1.229-0.592,2.002-1.846,1.98-3.209c-0.021-1.365-0.834-2.592-2.082-3.145\n                L197.766,0.3c-0.903-0.4-1.933-0.4-2.837,0L21.873,77.036c-1.259,0.559-2.073,1.803-2.081,3.18\n                C19.784,81.593,20.584,82.847,21.837,83.419z\" fill=\"currentColor\"></path>\n            <path d=\"M185.689,177.261l-64.988-30.01v91.617c0,0.856-0.44,1.655-1.167,2.114c-0.406,0.257-0.869,0.386-1.333,0.386\n                c-0.368,0-0.736-0.082-1.079-0.244l-68.874-32.625c-0.869-0.416-1.421-1.293-1.421-2.256v-92.229L6.804,95.5\n                c-1.083-0.496-2.344-0.406-3.347,0.238c-1.002,0.645-1.608,1.754-1.608,2.944v208.744c0,1.371,0.799,2.615,2.045,3.185\n                l178.886,81.768c0.464,0.211,0.96,0.315,1.455,0.315c0.661,0,1.318-0.188,1.892-0.555c1.002-0.645,1.608-1.754,1.608-2.945\n                V180.445C187.735,179.076,186.936,177.831,185.689,177.261z\" fill=\"currentColor\"></path>\n            <path d=\"M389.24,95.74c-1.002-0.644-2.264-0.732-3.347-0.238l-178.876,81.76c-1.246,0.57-2.045,1.814-2.045,3.185v208.751\n                c0,1.191,0.606,2.302,1.608,2.945c0.572,0.367,1.23,0.555,1.892,0.555c0.495,0,0.991-0.104,1.455-0.315l178.876-81.768\n                c1.246-0.568,2.045-1.813,2.045-3.185V98.685C390.849,97.494,390.242,96.384,389.24,95.74z\" fill=\"currentColor\"></path>\n            <path d=\"M372.915,80.216c-0.009-1.377-0.823-2.621-2.082-3.18l-60.182-26.681c-0.938-0.418-2.013-0.399-2.938,0.045\n                l-173.755,82.992l60.933,29.117c0.462,0.211,0.958,0.316,1.455,0.316s0.993-0.105,1.455-0.316l173.066-79.092\n                C372.122,82.847,372.923,81.593,372.915,80.216z\" fill=\"currentColor\"></path>\n        </svg>\n\n        <span>#{title_online}</span>\n    </div>"); // нужна заглушка, а то при страте лампы говорит пусто
+   var button = "<div class=\"full-start__button selector view--online_showy showy--button\" data-subtitle=\"".concat(manifst.name, " v").concat(manifst.version, "\">\n        <svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 392.697 392.697\" xml:space=\"preserve\">\n            <path d=\"M21.837,83.419l36.496,16.678L227.72,19.886c1.229-0.592,2.002-1.846,1.98-3.209c-0.021-1.365-0.834-2.592-2.082-3.145\n                L197.766,0.3c-0.903-0.4-1.933-0.4-2.837,0L21.873,77.036c-1.259,0.559-2.073,1.803-2.081,3.18\n                C19.784,81.593,20.584,82.847,21.837,83.419z\" fill=\"currentColor\"></path>\n            <path d=\"M185.689,177.261l-64.988-30.01v91.617c0,0.856-0.44,1.655-1.167,2.114c-0.406,0.257-0.869,0.386-1.333,0.386\n                c-0.368,0-0.736-0.082-1.079-0.244l-68.874-32.625c-0.869-0.416-1.421-1.293-1.421-2.256v-92.229L6.804,95.5\n                c-1.083-0.496-2.344-0.406-3.347,0.238c-1.002,0.645-1.608,1.754-1.608,2.944v208.744c0,1.371,0.799,2.615,2.045,3.185\n                l178.886,81.768c0.464,0.211,0.96,0.315,1.455,0.315c0.661,0,1.318-0.188,1.892-0.555c1.002-0.645,1.608-1.754,1.608-2.945\n                V180.445C187.735,179.076,186.936,177.831,185.689,177.261z\" fill=\"currentColor\"></path>\n            <path d=\"M389.24,95.74c-1.002-0.644-2.264-0.732-3.347-0.238l-178.876,81.76c-1.246,0.57-2.045,1.814-2.045,3.185v208.751\n                c0,1.191,0.606,2.302,1.608,2.945c0.572,0.367,1.23,0.555,1.892,0.555c0.495,0,0.991-0.104,1.455-0.315l178.876-81.768\n                c1.246-0.568,2.045-1.813,2.045-3.185V98.685C390.849,97.494,390.242,96.384,389.24,95.74z\" fill=\"currentColor\"></path>\n            <path d=\"M372.915,80.216c-0.009-1.377-0.823-2.621-2.082-3.18l-60.182-26.681c-0.938-0.418-2.013-0.399-2.938,0.045\n                l-173.755,82.992l60.933,29.117c0.462,0.211,0.958,0.316,1.455,0.316s0.993-0.105,1.455-0.316l173.066-79.092\n                C372.122,82.847,372.923,81.593,372.915,80.216z\" fill=\"currentColor\"></path>\n        </svg>\n\n        <span>#{title_online}</span>\n    </div>"); // ????? ????????, ? ?? ??? ?????? ????? ??????? ?????
     Lampa.Component.add('showy', component);
     resetTemplates();
     function addButton(e) {
@@ -1783,14 +1781,14 @@ function showHavePROModal() {
 
   var botElement = $('<div class="myBot" style="line-height: 0.5;color: #ffffff;font-family: &quot;SegoeUI&quot;, sans-serif;font-size: 1em;box-sizing: border-box;outline: none;user-select: none;display: flex;-webkit-box-align: start;align-items: flex-start;position: relative;background-color: rgba(255, 255, 255, 0.1);border-radius: 0.3em;margin: 1.5em 2em;">' +
           '<div class="ad-server__text">' +
-          'Тормозит видео? Нет источников в 4К и 1080? Попробуй подписку SHOWY PRO! Зайди в бот и получи доступ к Filmix 4K, Zetflix и ShowyTOR на высокой скорости!' +
+          '???????? ?????? ??? ?????????? ? 4? ? 1080? ???????? ???????? SHOWY PRO! ????? ? ??? ? ?????? ?????? ? Filmix 4K, Zetflix ? ShowyTOR ?? ??????? ????????!' +
           '</div><div class="ad-server__label">' +
           '@showybot' +
           '</div><img src="http://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://t.me/showybot?start=pro" class="ad-server__qr"></div>')
 
    var botElement2 = $('<div class="myBot2" style="line-height: 1;color: #ffffff;font-family: &quot;SegoeUI&quot;, sans-serif;font-size: 1em;box-sizing: border-box;outline: none;user-select: none;display: flex;-webkit-box-align: start;align-items: center;position: relative;background-color: rgba(255, 255, 255, 0.1);border-radius: 0.3em;margin-top: 1.5em;flex-direction: row-reverse;flex-wrap: nowrap;">' +
           '<div class="ad-server__text">' +
-          'Тормозит видео? Нет источников в 4К и 1080? Попробуй подписку SHOWY PRO! Зайди в бот и получи доступ к Filmix 4K, Zetflix и ShowyTOR на высокой скорости!' +
+          '???????? ?????? ??? ?????????? ? 4? ? 1080? ???????? ???????? SHOWY PRO! ????? ? ??? ? ?????? ?????? ? Filmix 4K, Zetflix ? ShowyTOR ?? ??????? ????????!' +
           '</div><img src="http://showwwy.com/qrcode.png" class="ad-server__qr"></div>')
 
     Lampa.Storage.listener.follow('change', function (event) {
@@ -1804,18 +1802,18 @@ function showHavePROModal() {
                    }, 50);
                 }
                 if (Lampa.Activity.active().component == 'full') {
-                   var add_ads2 = setInterval(function() {
+???                var add_ads2 = setInterval(function() {
 
-                    var titleText = $('.selectbox__title').text(); // Создаем переменную для текста
+???????             var titleText = $('.selectbox__title').text(); // ??????? ?????????? ??? ??????
 
-                    if (titleText.length && titleText === 'Источник' && Lampa.Activity.active().component === 'full') { // Проверяем длину переменной и ее значение
-                      //  $('.selectbox__title').after(botElement2); // Вставляем элемент после заголовка
+                    if (titleText.length && titleText === '????????' && Lampa.Activity.active().component === 'full') { // ????????? ????? ?????????? ? ?? ????????
+                      //  $('.selectbox__title').after(botElement2); // ????????? ??????? ????? ?????????
 
                     } else {
 
                         $('.myBot2').remove();
                     }
-                   }, 250);
+???                }, 250);
                 }
               }
          })
